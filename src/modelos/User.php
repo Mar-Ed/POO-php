@@ -44,7 +44,7 @@ class User{
     );
     return count($encontrar)==1;
   }
-  public function añadirSeguidor(User $user){
+  public function addFollower(User $user){
     if($this->hasFollowers($user)){
       if($this->id == $user ->id){
         print_r("No te puedes agregar a ti mismo");
@@ -52,11 +52,11 @@ class User{
         array_push($this->followers, $user);
       }
     }else{
-      print_r("El usuario $user->getUsername() ya es un follower \n");
+      print_r("El usuario $user->username ya es un follower \n");
     }
   }
   public static function showProfile (User $user){
-    $profile= "Nombre: $user->getUsername()\n";
+    $profile= "Nombre: $user->username \n";
     $profile.="Followers: ". count($user->followers) . "\n";
     $profile.= "Posts: ". count($user->posts) . "\n\n";
     return $profile;

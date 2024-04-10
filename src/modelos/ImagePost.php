@@ -1,7 +1,7 @@
 <?php
 namespace Vidamrr\Poo\modelos;
-
-use IPost;
+use Vidamrr\Poo\modelos\IPost;
+// use IPost;
 
 //Herencia en POO
 class ImagePost extends Post implements IPost{
@@ -14,10 +14,10 @@ class ImagePost extends Post implements IPost{
     return $this->imagen;
   }
   public function toString():string{
-    $info= "Id: $this->getId()\n";
+    $info= "Id: $this->getId() \n";
     $info.="Mensaje: ". $this->getMensaje() . "\n";
     $info.="Imagen: ". $this->getImagen() . "\n";
-    $info.= "Likes: ". $this->posts . "\n\n";
+    $info.= "Likes: ". count($this->getLikes()) . "\n\n";
     return $info;
   }
 }
