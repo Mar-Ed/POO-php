@@ -3,49 +3,63 @@
   use Vidamrr\Poo\modelos\Post;
   use Vidamrr\Poo\modelos\ImagePost;
   use Vidamrr\Poo\modelos\User;
-use Vidamrr\Poo\modelos\VideoPost;
+  use Vidamrr\Poo\modelos\VideoPost;
 
-  $marcos= new User("marcos", "vidamrr","asdasd@gmail.com", "vida123");
-  $andrea= new User("marcos", "Perez","rtty@gmail.com", "vida123");
-  $sofia= new User("marcos", "Caceres","uuuu@gmail.com", "vida123");
-  $maria= new User("marcos", "Perro","iiii@gmail.com", "vida123");
+  $rebeca= new User("Valdez", "Rebeca","asdasd@gmail.com", "vida123");
+  $sofia= new User("Melendez", "Sofia","rtty@gmail.com", "vida123");
+  $kim= new User("Gomez", "Kim","uuuu@gmail.com", "vida123");
+  $marcelo= new User("Bilbao", "Marcelo","iiii@gmail.com", "vida123");
   
 
-  $marcosPost= new ImagePost("Domingo con mamá", "fotofamiliar.jpg");
-  $andreaPost= new VideoPost("Comiendo huevito", "cena.jpg");
-  $sofiaPost= new VideoPost("Orinando", "vida123.jpg");
-  $mariaPost= new ImagePost("Jugando con perros", "IMG.jpg");
+  $rebecaPost= new ImagePost("Domingo con mamá", "fotofamiliar.jpg");
+  $sofiaPost= new VideoPost("Comiendo huevito", "cena.mov");
+  $kimPost= new VideoPost("Orinando", "vida123.mov");
+  $marceloPost= new ImagePost("Jugando con perros", "IMG.jpg");
 
-  $marcos->publish($marcosPost);
-  $andrea->publish($andreaPost);
+  $rebeca->publish($rebecaPost);
   $sofia->publish($sofiaPost);
-  $maria->publish($mariaPost);
-
-  $marcosPost->addLikes($marcos);
-  $marcosPost->addLikes($andrea);
-
-  $andreaPost->addLikes($marcos);
-
-  $sofiaPost->addLikes($marcos);
-  $sofiaPost->addLikes($andrea);
-  $sofiaPost->addLikes($sofia);
-
-  $mariaPost->addLikes($sofia); 
-  $mariaPost->addLikes($marcos);
-
-  $marcos->addFollower($sofia);
-  $marcos->addFollower($andrea);
-  $marcos->addFollower($maria);
-
-  $maria->addFollower($marcos);
-
-  $sofia->addFollower($marcos);
-  $sofia->addFollower($andrea);
-  $sofia->addFollower($maria);
+  $kim->publish($kimPost);
+  $marcelo->publish($marceloPost);
+  $marcelo->publish($marceloPost);
+  $marcelo->publish($marceloPost);
 
 
-  print_r(User::showProfile($marcos));
-  print_r(User::showProfile($andrea));
+
+  $rebecaPost->addLikes($marcelo);
+  $rebecaPost->addLikes($rebeca);
+
+  $sofiaPost->addLikes($kim);
+
+  $kimPost->addLikes($rebeca);
+  $kimPost->addLikes($kim);
+  $kimPost->addLikes($sofia);
+
+  $marceloPost->addLikes($sofia); 
+  $marceloPost->addLikes($marcelo);
+
+  $rebeca->addFollower($sofia);
+  $rebeca->addFollower($kim);
+  $rebeca->addFollower($marcelo);
+
+  $sofia->addFollower($kim);
+
+  $kim->addFollower($marcelo);
+  $kim->addFollower($sofia);
+
+  $marcelo->addFollower($kim);
+  $marcelo->addFollower($rebeca);
+  $marcelo->addFollower($sofia);
+
+
+  print_r(User::showProfile($rebeca));
+  print_r(User::showProfile($marcelo));
   print_r(User::showProfile($sofia));
-  print_r(User::showProfile($maria));
+  print_r(User::showProfile($kim));
+
+  print_r($rebecaPost->toString());
+  print_r($marceloPost->toString());
+  print_r($sofiaPost->toString());
+  print_r($kimPost->toString());
+
+
 ?>

@@ -33,7 +33,8 @@ class Post{
         return $like->getUser()->getId() == $user->getId();
       }
     );
-    return count($found)==1;
+    $found = $found ?? [];
+    return count($found) == 1;
   }
   public function addLikes(User $user){
     if($this->checkIfUserLiked($user)){
@@ -51,3 +52,4 @@ class Post{
   }
   
 }
+?>

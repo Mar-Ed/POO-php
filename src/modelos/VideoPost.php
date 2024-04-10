@@ -1,7 +1,7 @@
 <?php
 namespace Vidamrr\Poo\modelos;
 
-use IPost;
+use Vidamrr\Poo\modelos\Ipost;
 
 class VideoPost extends Post implements IPost{
   public function __construct(
@@ -13,11 +13,18 @@ class VideoPost extends Post implements IPost{
   public function getVideo(): string{ 
     return $this->video;
   }
-  public function toString():string{
-    $info= "Id: $this->getId()\n";
-    $info.="Mensaje: ". $this->getMensaje() . "\n";
-    $info.="Imagen: ". $this->getImagen() . "\n";
-    $info.= "Likes: ". count($this->getLikes()) . "\n\n";
+  // public function toString():string{
+  //   $info= "Id: $this->getId(). \n";
+  //   $info.= "Mensaje:  $this->getMensaje() \n";
+  //   $info.="Imagen:  $this->getImagen() .\n";
+  //   $info.= "Likes:" . count($this->getLikes()) . "\n\n";
+  //   return $info;
+  // }
+  public function toString(): string {
+    $info = "Id: " . $this->getId() . ". \n";
+    $info .= "Mensaje: " . $this->getMensaje() . "\n";
+    $info .= "Video: " . $this->getVideo() . ".\n";
+    $info .= "Likes: " . count($this->getLikes()) . "\n\n";
     return $info;
   }
 }
